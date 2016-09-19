@@ -1,2 +1,2 @@
 # dubai_csharp_pro
-MVC5
+MVC5+bootstrap+react+redux
