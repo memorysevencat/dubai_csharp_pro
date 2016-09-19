@@ -1,3 +1,3 @@
 # dubai_csharp_pro
-#### MVC5+nodejs
+#### C#MVC5+nodejs sqlserver+mongo+redis
 #### bootstrap+react+redux
