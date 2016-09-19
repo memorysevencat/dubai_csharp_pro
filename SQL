@@ -1,0 +1,7 @@
+---用户表---
+CREATE TABLE Dubai_USER(
+UserId INT IDENTITY(1,1) PRIMARY KEY, --主键，自动增长列
+UserName NVARCHAR(50) NOT NULL, --用户名
+UserPwd NVARCHAR(50) NOT NULL, --密码
+UserType BIT NOT NULL
+)
