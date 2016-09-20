@@ -10,10 +10,10 @@ UserType BIT NOT NULL
 
 --新闻表--
 CREATE TABLE Dubai_Editor(
-Title NVARCHAR(50) ,
-Description NVARCHAR(50),
-Article text,
-ArticleType NVARCHAR(10),
-ReleaseTime DATETIME,
-sort INT
+Title NVARCHAR(50) ,  --标题
+Description NVARCHAR(50), --摘要
+Article text,  --内容
+ArticleType NVARCHAR(10), --文章类型
+ReleaseTime DATETIME, --发布时间
+sort INT  --排序
 ) 
