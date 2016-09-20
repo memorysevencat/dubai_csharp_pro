@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        <div>登录</div>
+        <div>
+           <form action="~/Admin/Login" method="post">
+               <div><span>@Html.ValidationMessage("user")</span></div>
+               <div>
+                  
+                   <input name="username" type="text" placeholder="用户名" required/>
+                   
+               </div>
+               <div>
+                   <input name="userpwd" type="text" placeholder="密码" required/>
+              </div>
+               <div>
+                   <input name="securityCode" type="text"  placeholder="验证码" required/>
+                   <span><img id="ImgValidateCode" alt="验证码图片" title="看不清？点击换一个" src="@Url.Action("SecurityCode")" onclick="this.src=this.src+'?'"/><br/></span>
+                   <span>@Html.ValidationMessage("securityCode")</span>
+               </div>
+               <div>
+                   <button name="denglv" type="submit">登录</button>
+               </div>
+
+           </form>
+        </div>
+    </div>
+</body>
+</html>
