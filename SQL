@@ -5,3 +5,15 @@ UserName NVARCHAR(50) NOT NULL, --用户名
 UserPwd NVARCHAR(50) NOT NULL, --密码
 UserType BIT NOT NULL
 )
+
+
+
+--新闻表--
+CREATE TABLE Dubai_Editor(
+Title NVARCHAR(50) ,
+Description NVARCHAR(50),
+Article text,
+ArticleType NVARCHAR(10),
+ReleaseTime DATETIME,
+sort INT
+) 
