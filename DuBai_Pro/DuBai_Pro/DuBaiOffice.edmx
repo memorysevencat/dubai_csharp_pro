@@ -4,7 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DuBaiOfficeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DuBaiOfficeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“DuBaiOffice.dbo.Dubai_Editor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Dubai_Editor">
+          <Key>
+            <PropertyRef Name="EditorID" />
+          </Key>
+          <Property Name="EditorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Article" Type="text" />
+          <Property Name="ArticleType" Type="nvarchar" MaxLength="10" />
+          <Property Name="ReleaseTime" Type="datetime" />
+          <Property Name="sort" Type="int" />
+        </EntityType>
         <EntityType Name="Dubai_USER">
           <Key>
             <PropertyRef Name="UserId" />
@@ -16,9 +30,19 @@
         </EntityType>
         <EntityContainer Name="DuBaiOfficeModelStoreContainer">
           <EntitySet Name="Dubai_USER" EntityType="Self.Dubai_USER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dubai_Editor" EntityType="Self.Dubai_Editor" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Dubai_Editor].[EditorID] AS [EditorID], 
+    [Dubai_Editor].[Title] AS [Title], 
+    [Dubai_Editor].[Description] AS [Description], 
+    [Dubai_Editor].[Article] AS [Article], 
+    [Dubai_Editor].[ArticleType] AS [ArticleType], 
+    [Dubai_Editor].[ReleaseTime] AS [ReleaseTime], 
+    [Dubai_Editor].[sort] AS [sort]
+    FROM [dbo].[Dubai_Editor] AS [Dubai_Editor]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DuBaiOfficeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -33,7 +57,20 @@
         </EntityType>
         <EntityContainer Name="DuBaiOfficeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Dubai_USER" EntityType="Self.Dubai_USER" />
+          <EntitySet Name="Dubai_Editor" EntityType="DuBaiOfficeModel.Dubai_Editor" />
         </EntityContainer>
+        <EntityType Name="Dubai_Editor">
+          <Key>
+            <PropertyRef Name="EditorID" />
+          </Key>
+          <Property Name="EditorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Article" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ArticleType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ReleaseTime" Type="DateTime" Precision="3" />
+          <Property Name="sort" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -47,6 +84,19 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
                 <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dubai_Editor">
+            <EntityTypeMapping TypeName="DuBaiOfficeModel.Dubai_Editor">
+              <MappingFragment StoreEntitySet="Dubai_Editor">
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="ReleaseTime" ColumnName="ReleaseTime" />
+                <ScalarProperty Name="ArticleType" ColumnName="ArticleType" />
+                <ScalarProperty Name="Article" ColumnName="Article" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EditorID" ColumnName="EditorID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

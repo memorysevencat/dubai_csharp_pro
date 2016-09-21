@@ -19,6 +19,12 @@ namespace DuBai_Pro.Controllers
         public ActionResult Editor(FormCollection fc)
         {
             var con = fc["content"];
+            using (DuBaiOfficeEntities en=new DuBaiOfficeEntities())
+            {
+                Dubai_Editor editor = new Dubai_Editor();
+                en.Dubai_Editor.Add(editor);
+                en.SaveChanges();
+            }
 
             return View();
         }

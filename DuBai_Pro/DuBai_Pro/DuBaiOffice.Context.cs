@@ -26,5 +26,6 @@ namespace DuBai_Pro
         }
     
         public virtual DbSet<Dubai_USER> Dubai_USER { get; set; }
+        public virtual DbSet<Dubai_Editor> Dubai_Editor { get; set; }
     }
 }

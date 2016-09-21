@@ -438,6 +438,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DuBaiOffice.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Dubai_Editor.cs">
+      <DependentUpon>DuBaiOffice.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dubai_USER.cs">
       <DependentUpon>DuBaiOffice.tt</DependentUpon>
     </Compile>
@@ -461,13 +464,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Admin\Login.cshtml" />
-    <EntityDeploy Include="DuBaiOffice.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DuBaiOffice.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DuBaiOffice.edmx.diagram">
-      <DependentUpon>DuBaiOffice.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\Editor\Editor.cshtml" />
     <Content Include="JS\net\config.json" />
     <Content Include="JS\net\controller.ashx" />
@@ -477,6 +473,13 @@
     <Content Include="JS\third-party\video-js\font\vjs.eot" />
     <Content Include="JS\third-party\video-js\font\vjs.ttf" />
     <Content Include="JS\third-party\video-js\font\vjs.woff" />
+    <EntityDeploy Include="DuBaiOffice.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DuBaiOffice.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DuBaiOffice.edmx.diagram">
+      <DependentUpon>DuBaiOffice.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
