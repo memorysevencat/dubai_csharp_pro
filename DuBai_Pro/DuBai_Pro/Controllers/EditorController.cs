@@ -16,6 +16,8 @@ namespace DuBai_Pro.Controllers
 
         public ActionResult Editor()
         {
+
+
             return View();
         }
     }
