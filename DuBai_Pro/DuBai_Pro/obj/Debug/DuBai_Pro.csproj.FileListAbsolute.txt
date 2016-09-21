@@ -48,3 +48,6 @@ D:\dubai_csharp_pro\DuBai_Pro\DuBai_Pro\bin\System.Web.Mvc.xml
 D:\dubai_csharp_pro\DuBai_Pro\DuBai_Pro\obj\Debug\DuBai_Pro.csprojResolveAssemblyReference.cache
 D:\dubai_csharp_pro\DuBai_Pro\DuBai_Pro\obj\Debug\DuBai_Pro.dll
 D:\dubai_csharp_pro\DuBai_Pro\DuBai_Pro\obj\Debug\DuBai_Pro.pdb
+D:\dubai_csharp_pro\DuBai_Pro\DuBai_Pro\bin\Newtonsoft.Json.dll
+D:\dubai_csharp_pro\DuBai_Pro\DuBai_Pro\bin\Newtonsoft.Json.pdb
+D:\dubai_csharp_pro\DuBai_Pro\DuBai_Pro\bin\Newtonsoft.Json.xml

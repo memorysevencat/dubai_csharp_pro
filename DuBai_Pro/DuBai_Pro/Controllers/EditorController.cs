@@ -14,9 +14,11 @@ namespace DuBai_Pro.Controllers
             return View();
         }
 
-        public ActionResult Editor()
+       
+        [ValidateInput(false)]
+        public ActionResult Editor(FormCollection fc)
         {
-
+            var con = fc["content"];
 
             return View();
         }
