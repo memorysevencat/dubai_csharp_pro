@@ -11,5 +11,18 @@
   </EntityType>
   <EntityContainer Name="DuBaiOfficeEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Dubai_USER" EntityType="Self.Dubai_USER" />
+    <EntitySet Name="Dubai_Editor" EntityType="DuBaiOfficeModel.Dubai_Editor" />
   </EntityContainer>
+  <EntityType Name="Dubai_Editor">
+    <Key>
+      <PropertyRef Name="EditorID" />
+    </Key>
+    <Property Name="EditorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Article" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ArticleType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ReleaseTime" Type="DateTime" Precision="3" />
+    <Property Name="sort" Type="Int32" />
+  </EntityType>
 </Schema>

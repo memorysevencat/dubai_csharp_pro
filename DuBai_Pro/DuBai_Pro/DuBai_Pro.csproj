@@ -464,7 +464,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\Editor\Editor.cshtml" />
     <Content Include="JS\net\config.json" />
     <Content Include="JS\net\controller.ashx" />
     <Content Include="JS\net\README.md" />
@@ -480,6 +479,7 @@
     <Content Include="DuBaiOffice.edmx.diagram">
       <DependentUpon>DuBaiOffice.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Editor\Editor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

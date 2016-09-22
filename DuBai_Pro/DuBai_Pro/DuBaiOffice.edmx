@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DuBaiOfficeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“DuBaiOffice.dbo.Dubai_Editor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Dubai_Editor">
           <Key>
             <PropertyRef Name="EditorID" />
@@ -29,18 +27,8 @@
           <Property Name="UserType" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DuBaiOfficeModelStoreContainer">
+          <EntitySet Name="Dubai_Editor" EntityType="Self.Dubai_Editor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dubai_USER" EntityType="Self.Dubai_USER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Dubai_Editor" EntityType="Self.Dubai_Editor" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Dubai_Editor].[EditorID] AS [EditorID], 
-    [Dubai_Editor].[Title] AS [Title], 
-    [Dubai_Editor].[Description] AS [Description], 
-    [Dubai_Editor].[Article] AS [Article], 
-    [Dubai_Editor].[ArticleType] AS [ArticleType], 
-    [Dubai_Editor].[ReleaseTime] AS [ReleaseTime], 
-    [Dubai_Editor].[sort] AS [sort]
-    FROM [dbo].[Dubai_Editor] AS [Dubai_Editor]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->

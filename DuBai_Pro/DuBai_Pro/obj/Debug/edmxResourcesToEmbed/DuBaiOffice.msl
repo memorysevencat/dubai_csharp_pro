@@ -11,5 +11,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Dubai_Editor">
+      <EntityTypeMapping TypeName="DuBaiOfficeModel.Dubai_Editor">
+        <MappingFragment StoreEntitySet="Dubai_Editor">
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="ReleaseTime" ColumnName="ReleaseTime" />
+          <ScalarProperty Name="ArticleType" ColumnName="ArticleType" />
+          <ScalarProperty Name="Article" ColumnName="Article" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EditorID" ColumnName="EditorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

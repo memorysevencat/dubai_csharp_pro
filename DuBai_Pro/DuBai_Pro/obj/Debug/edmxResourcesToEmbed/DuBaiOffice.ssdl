@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DuBaiOfficeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dubai_Editor">
+    <Key>
+      <PropertyRef Name="EditorID" />
+    </Key>
+    <Property Name="EditorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Article" Type="text" />
+    <Property Name="ArticleType" Type="nvarchar" MaxLength="10" />
+    <Property Name="ReleaseTime" Type="datetime" />
+    <Property Name="sort" Type="int" />
+  </EntityType>
   <EntityType Name="Dubai_USER">
     <Key>
       <PropertyRef Name="UserId" />
@@ -10,6 +22,7 @@
     <Property Name="UserType" Type="bit" Nullable="false" />
   </EntityType>
   <EntityContainer Name="DuBaiOfficeModelStoreContainer">
+    <EntitySet Name="Dubai_Editor" EntityType="Self.Dubai_Editor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Dubai_USER" EntityType="Self.Dubai_USER" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

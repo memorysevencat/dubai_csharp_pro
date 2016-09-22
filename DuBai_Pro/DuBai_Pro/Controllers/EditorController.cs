@@ -14,14 +14,21 @@ namespace DuBai_Pro.Controllers
             return View();
         }
 
-       
+        
+        public ActionResult Editor()
+        {
+               return View();
+        }
+
+        [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Editor(FormCollection fc)
+        public ActionResult Editor( string title,string abstr,FormCollection fc)
         {
             var con = fc["content"];
+            
             using (DuBaiOfficeEntities en=new DuBaiOfficeEntities())
             {
-                Dubai_Editor editor = new Dubai_Editor();
+                Dubai_Editor editor = new Dubai_Editor() { Title=title,Description=abstr,Article=con,ReleaseTime=DateTime.Now };
                 en.Dubai_Editor.Add(editor);
                 en.SaveChanges();
             }
