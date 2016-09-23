@@ -480,6 +480,7 @@
       <DependentUpon>DuBaiOffice.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Editor\Editor.cshtml" />
+    <Content Include="Views\Editor\GetAllEditor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

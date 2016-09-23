@@ -35,5 +35,35 @@ namespace DuBai_Pro.Controllers
 
             return View();
         }
+
+
+        public ActionResult GetAllEditor()
+        {
+            using (DuBaiOfficeEntities en = new DuBaiOfficeEntities())
+            {
+                var editor = (from ed in en.Dubai_Editor select ed).ToList();
+
+                return View("GetAllEditor", editor);
+            }
+         
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            using (DuBaiOfficeEntities en = new DuBaiOfficeEntities())
+            {
+              
+                var editor = en.Dubai_Editor.Find(id);
+                en.Dubai_Editor.Remove(editor);
+                en.SaveChanges();
+                return View("GetAllEditor", editor);
+            }
+        }
+
+
+
+
+
     }
 }
