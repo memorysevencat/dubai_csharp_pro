@@ -57,13 +57,45 @@ namespace DuBai_Pro.Controllers
                 var editor = en.Dubai_Editor.Find(id);
                 en.Dubai_Editor.Remove(editor);
                 en.SaveChanges();
-                return View("GetAllEditor", editor);
+                return Content("<script>alert('删除成功！');window.location='" + Url.Content("~/Editor/GetAllEditor") + "'</script>");
             }
         }
 
 
+        public ActionResult Details(int id)
+        {
+            using (DuBaiOfficeEntities en = new DuBaiOfficeEntities())
+            {
+                var detail = from ed in en.Dubai_Editor where ed.EditorID == id select ed;
 
+                Dubai_Editor deta = detail.FirstOrDefault();
 
+                if (deta != null)
+                {
+                    return View("Details", deta);
+                }
+                else
+                {
+                    return RedirectToAction("GetAllEditor");
+                }
+                
+                
 
-    }
+            }
+           
+
+        }
+
+        public ActionResult Change(int id)
+        {
+            using (DuBaiOfficeEntities en = new DuBaiOfficeEntities())
+            {
+                var ch = from c in en.Dubai_Editor where c.EditorID == id select c;
+
+            }
+
+            return View();
+        }
+
+        }
 }
