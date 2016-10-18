@@ -19,7 +19,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Editor")
+        @Html.ActionLink("新增", "Editor")
     </p>
     <table class="table">
         <tr>
@@ -60,7 +60,7 @@
                 @Html.DisplayFor(modelItem => item.ReleaseTime)
             </td>
             <td>
-                @Html.ActionLink("编辑", "Edit", new { id=item.EditorID }) |
+                @Html.ActionLink("编辑", "Change", new { id=item.EditorID }) |
                 @Html.ActionLink("详细", "Details", new { id=item.EditorID }) |
                 @Html.ActionLink("删除", "Delete", new { id=item.EditorID })
             </td>

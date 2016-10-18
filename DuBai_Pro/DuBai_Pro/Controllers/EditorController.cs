@@ -43,6 +43,7 @@ namespace DuBai_Pro.Controllers
             {
                 var editor = (from ed in en.Dubai_Editor select ed).ToList();
 
+
                 return View("GetAllEditor", editor);
             }
          
@@ -90,12 +91,50 @@ namespace DuBai_Pro.Controllers
         {
             using (DuBaiOfficeEntities en = new DuBaiOfficeEntities())
             {
-                var ch = from c in en.Dubai_Editor where c.EditorID == id select c;
+                var ch = (from c in en.Dubai_Editor where c.EditorID == id select c).ToList();
 
+                Dubai_Editor deta = ch.FirstOrDefault();
+
+                ViewData["course"] = deta;
+
+                return View("Change", deta);
             }
 
-            return View();
+            
         }
 
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Change(Dubai_Editor editor)
+        {
+            using (DuBaiOfficeEntities en = new DuBaiOfficeEntities())
+            {
+                var bj = en.Dubai_Editor.Find(editor.EditorID);
+
+                bj.Article = editor.Article;
+                bj.ArticleType = editor.ArticleType;
+                bj.Description = editor.Description;
+                bj.ReleaseTime = editor.ReleaseTime;
+                bj.Title = editor.Title;
+                bj.sort = editor.sort;
+
+                en.Entry<Dubai_Editor>(bj).State = System.Data.Entity.EntityState.Modified;
+                int intCount = en.SaveChanges();
+                                 if (intCount > 0)
+                                     {
+                                        return RedirectToAction("Details", new { id = editor.EditorID });
+                                     }
+                                else
+                 {
+                                       return Content("修改失败");
+                                    }
+
+
+               
+            }
+
+
         }
+
+    }
 }

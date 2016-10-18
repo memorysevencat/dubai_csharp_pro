@@ -1,0 +1,85 @@
+﻿@model DuBai_Pro.Dubai_Editor
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Change</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>Dubai_Editor</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.EditorID)
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Article, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Article, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Article, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.ArticleType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ArticleType, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ArticleType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.ReleaseTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ReleaseTime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ReleaseTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.sort, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.sort, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.sort, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="保存" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("返回列表", "GetAllEditor")
+    </div>
+</body>
+</html>

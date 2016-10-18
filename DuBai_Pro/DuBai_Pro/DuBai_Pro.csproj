@@ -482,6 +482,7 @@
     <Content Include="Views\Editor\Editor.cshtml" />
     <Content Include="Views\Editor\GetAllEditor.cshtml" />
     <Content Include="Views\Editor\Details.cshtml" />
+    <Content Include="Views\Editor\Change.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
