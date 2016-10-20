@@ -43,7 +43,7 @@ namespace DuBai_Pro.Controllers
             {
                 var editor = (from ed in en.Dubai_Editor select ed).ToList();
 
-
+                ViewData["check"] = Request.Form["chk1"];
                 return View("GetAllEditor", editor);
             }
          
@@ -74,9 +74,11 @@ namespace DuBai_Pro.Controllers
                 if (deta != null)
                 {
                     return View("Details", deta);
+                   
                 }
                 else
                 {
+                    
                     return RedirectToAction("GetAllEditor");
                 }
                 

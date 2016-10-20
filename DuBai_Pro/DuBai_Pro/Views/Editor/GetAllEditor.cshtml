@@ -9,6 +9,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
     <title>GetAllEditor</title>
     <style type="text/css">
         .table {
@@ -24,7 +26,7 @@
     <table class="table">
         <tr>
             <th>
-                
+                @Html.CheckBox("chk", false)
             </th>
             <th>
                标题
@@ -68,5 +70,13 @@
     }
     
     </table>
+
+    
+    <script type="text/javascript">
+        var checklist=$("input[name='chk1']");
+        $("#chk").click(function () {
+            checklist.prop("checked", $(this).prop("checked"))
+        })
+    </script>
 </body>
 </html>
